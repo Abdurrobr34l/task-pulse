@@ -1,9 +1,10 @@
 import React from 'react';
+import Overview from '../Components/Overview';
 
 const Dashboard = () => {
   return (
-    <div className='text-gray-800 border'>
-      Dashboard
+    <div className='border'>
+      <Overview/>
     </div>
   );
 };

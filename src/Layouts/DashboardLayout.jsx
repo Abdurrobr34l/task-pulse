@@ -13,7 +13,7 @@ const DashboardLayout = () => {
       <div className="drawer-content flex flex-col">
 
         {/* NAVBAR */}
-        <header className="navbar rounded-[16px] bg-[#f7f7f7] sticky top-0 z-10 px-6 lg:px-10 py-5 border-b border-gray-100">
+        <header className="navbar rounded-[16px] bg-[#f7f7f7] sticky top-0 z-10 p-6 border-b border-gray-100">
           <div className="flex-1 flex-row gap-4">
 
             <label
@@ -61,8 +61,8 @@ const DashboardLayout = () => {
         </header>
 
         {/* MAIN */}
-        <main className="p-6 lg:p-10 mt-4 bg-[#f7f7f7] rounded-[16px] min-h-screen">
-          <div className="flex flex-col gap-3 mb-5 xl:flex-row xl:justify-between">
+        <main className="p-6 mt-4 bg-[#f7f7f7] rounded-[16px] min-h-screen">
+          <div className="flex flex-col gap-3 mb-8 xl:flex-row xl:justify-between">
             <div>
               <h1 className="text-4xl font-bold text-gray-800">
                 Dashboard
@@ -73,11 +73,11 @@ const DashboardLayout = () => {
             </div>
 
             <div className="flex gap-4">
-              <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6">
+              <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6 xl:h-12.5">
                 <FiPlus size={16} /> Add Project
               </button>
 
-              <button className="px-4 py-4 rounded-full border border-brand-primary text-brand-primary text-md font-medium hover:cursor-pointer md:px-6">
+              <button className="px-4 py-2 rounded-full border border-brand-primary text-brand-primary text-md font-medium hover:cursor-pointer md:px-6 xl:h-12.5">
                 Import Data
               </button>
             </div>
@@ -91,7 +91,7 @@ const DashboardLayout = () => {
       <aside className="drawer-side mr-4">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
 
-        <div className="w-72 min-h-full bg-[#f7f7f7] ml-4 mt-4 border-r border-gray-100 rounded-xl p-6 flex flex-col justify-between">
+        <div className="w-72 min-h-full bg-[#f7f7f7] ml-4 mt-4 border-r border-gray-100 rounded-xl! p-6 flex flex-col justify-between xl:ml-0 xl:mt-0">
 
           {/* Logo */}
           <div>
