@@ -7,10 +7,6 @@
     --color-brand-primary: #1a5d3e;
     --color-brand-light: #e8f5ee;
     --color-brand-accent: #34d399;
-    
-    /* Border Radius */
-    --radius-xl: 1.5rem;
-    --radius-2xl: 2rem;
   }
 
   @plugin "daisyui" {

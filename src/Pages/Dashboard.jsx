@@ -4,6 +4,7 @@ import Analytics from '../Components/Analytics';
 import Remainder from '../Components/Remainder';
 import ProjectProgress from '../Components/ProjectProgress';
 import TimeTracker from '../Components/TimeTracker';
+import User from '../Components/User';
 
 const Dashboard = () => {
   return (
@@ -14,6 +15,7 @@ const Dashboard = () => {
         <Analytics/>
         <Remainder/>
         {/* <ProjectProgress/> */}
+        <User/>
         <TimeTracker/>
       </div>
     </div>
