@@ -14,11 +14,11 @@ const DashboardLayout = () => {
 
         {/* NAVBAR */}
         <header className="navbar rounded-[16px] bg-[#f7f7f7] sticky top-0 z-10 px-6 lg:px-10 py-5 border-b border-gray-100">
-          <div className="flex-1 gap-4">
+          <div className="flex-1 flex-row gap-4">
 
             <label
               htmlFor="my-drawer"
-              className="btn btn-ghost drawer-button lg:hidden"
+              className="btn btn-ghost drawer-button lg:hidden bg-brand-primary rounded-lg"
             >
               ☰
             </label>
@@ -34,7 +34,7 @@ const DashboardLayout = () => {
             </div>
           </div>
 
-          <div className="flex-none gap-3 flex items-center">
+          <div className="flex-none gap-3 flex items-center ml-5">
             <button className="w-10 h-10 rounded-full bg-[#ffffff] text-base-200 flex items-center justify-center">
               <FiMail size={18} />
             </button>
@@ -62,7 +62,7 @@ const DashboardLayout = () => {
 
         {/* MAIN */}
         <main className="p-6 lg:p-10 mt-4 bg-[#f7f7f7] rounded-[16px] min-h-screen">
-          <div className="flex justify-between items-center mb-5">
+          <div className="flex flex-col gap-3 mb-5 xl:flex-row xl:justify-between">
             <div>
               <h1 className="text-4xl font-bold text-gray-800">
                 Dashboard
@@ -73,11 +73,11 @@ const DashboardLayout = () => {
             </div>
 
             <div className="flex gap-4">
-              <button className="bg-color flex items-center gap-2 px-6 py-4 rounded-full text-white text-md font-medium shadow-md">
+              <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6">
                 <FiPlus size={16} /> Add Project
               </button>
 
-              <button className="px-6 py-4 rounded-full border border-brand-primary text-brand-primary text-md font-medium hover:cursor-pointer">
+              <button className="px-4 py-4 rounded-full border border-brand-primary text-brand-primary text-md font-medium hover:cursor-pointer md:px-6">
                 Import Data
               </button>
             </div>
@@ -88,10 +88,10 @@ const DashboardLayout = () => {
       </div>
 
       {/* SIDEBAR */}
-      <aside className="drawer-side">
+      <aside className="drawer-side mr-4">
         <label htmlFor="my-drawer" className="drawer-overlay"></label>
 
-        <div className="w-72 min-h-full bg-[#f7f7f7] border-r border-gray-100 rounded-xl p-6 flex flex-col justify-between">
+        <div className="w-72 min-h-full bg-[#f7f7f7] ml-4 mt-4 border-r border-gray-100 rounded-xl p-6 flex flex-col justify-between">
 
           {/* Logo */}
           <div>
