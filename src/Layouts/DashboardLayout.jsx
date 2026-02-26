@@ -1,20 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router";
-import {
-  FiSearch,
-  FiBell,
-  FiMail,
-  FiPlus,
-  FiDownload,
-  FiCheckSquare,
-  FiCalendar,
-  FiUsers,
-  FiSettings,
-  FiHelpCircle,
-  FiLogOut,
-  FiBarChart2,
-} from "react-icons/fi";
+import { FiSearch, FiBell, FiMail, FiPlus, FiDownload, FiCheckSquare, FiCalendar, FiUsers, FiSettings, FiHelpCircle, FiLogOut, FiBarChart2, } from "react-icons/fi";
 import { MdOutlineDashboard } from "react-icons/md";
+import Logo from "/logo.png";
 
 const DashboardLayout = () => {
   return (
@@ -41,7 +29,7 @@ const DashboardLayout = () => {
               <input
                 type="text"
                 placeholder="Search task"
-                className="w-full pl-11 pr-4 py-3 bg-[#ffffff] rounded-full outline-none text-sm"
+                className="w-full pl-11 pr-4 py-3 bg-[#ffffff] text-gray-800 rounded-full outline-none text-sm"
               />
             </div>
           </div>
@@ -62,10 +50,10 @@ const DashboardLayout = () => {
                   alt="avatar"
                 />
               </div>
-              <div className="text-right hidden sm:block">
-                <p className="text-sm font-semibold text-base-200">Totok Michael</p>
-                <p className="text-xs text-gray-400">
-                  tmichael20@mail.com
+              <div className="text-left hidden sm:block">
+                <p className="text-md font-bold text-base-200">Abdur Rob</p>
+                <p className="text-xs text-gray-600">
+                  abdurrob@mail.com
                 </p>
               </div>
             </div>
@@ -74,22 +62,22 @@ const DashboardLayout = () => {
 
         {/* MAIN */}
         <main className="p-6 lg:p-10 mt-4 bg-[#f7f7f7] rounded-[16px] min-h-screen">
-          <div className="flex justify-between items-center mb-10">
+          <div className="flex justify-between items-center mb-5">
             <div>
               <h1 className="text-4xl font-bold text-gray-800">
                 Dashboard
               </h1>
-              <p className="text-gray-400 text-sm mt-1">
+              <p className="text-gray-400 text-lg mt-1">
                 Plan, prioritize, and accomplish your tasks with ease.
               </p>
             </div>
 
             <div className="flex gap-4">
-              <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-linear-to-r from-[#14532d] to-[#1f7a4c] text-white text-sm font-medium shadow-md">
+              <button className="bg-color flex items-center gap-2 px-6 py-4 rounded-full text-white text-md font-medium shadow-md">
                 <FiPlus size={16} /> Add Project
               </button>
 
-              <button className="px-6 py-3 rounded-full border border-[#14532d] text-[#14532d] text-sm font-medium">
+              <button className="px-6 py-4 rounded-full border border-brand-primary text-brand-primary text-md font-medium hover:cursor-pointer">
                 Import Data
               </button>
             </div>
@@ -108,75 +96,75 @@ const DashboardLayout = () => {
           {/* Logo */}
           <div>
             <div className="flex items-center gap-3 mb-12">
-              <div className="w-9 h-9 bg-[#14532d] rounded-xl flex items-center justify-center text-white font-bold">
-                D
+              <div className="w-16 h-16">
+                <img src={Logo} alt="It is website logo " />
               </div>
               <span className="text-2xl font-bold text-gray-800">
-                Donezo
+                Task Pulse
               </span>
             </div>
 
             {/* MENU */}
-            <p className="text-xs uppercase text-gray-400 mb-4">Menu</p>
+            <p className="text-md font-semibold uppercase text-gray-400 mb-4">Menu</p>
 
             <ul className="space-y-2 mb-8">
               <li>
-                <a className="flex items-center gap-3 bg-[#14532d] text-white py-3 px-4 rounded-xl">
+                <a className="flex items-center gap-3 bg-brand-primary text-white py-3 px-4 rounded-xl">
                   <MdOutlineDashboard size={20} />
                   Dashboard
                 </a>
               </li>
 
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 hover:bg-gray-100">
+                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 transition-colors duration-300 ease-linear hover:bg-gray-200">
                   <FiCheckSquare size={20} />
                   Tasks
                 </a>
               </li>
 
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 hover:bg-gray-100">
+                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 transition-colors duration-300 ease-linear hover:bg-gray-200">
                   <FiCalendar size={20} />
                   Calendar
                 </a>
               </li>
 
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 hover:bg-gray-100">
+                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 transition-colors duration-300 ease-linear hover:bg-gray-200">
                   <FiBarChart2 size={20} />
                   Analytics
                 </a>
               </li>
 
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 hover:bg-gray-100">
+                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 transition-colors duration-300 ease-linear hover:bg-gray-200">
                   <FiUsers size={20} />
                   Team
                 </a>
               </li>
             </ul>
 
-            <p className="text-xs uppercase text-gray-400 mb-4">
+            <p className="text-md font-semibold uppercase text-gray-400 mb-4">
               General
             </p>
 
             <ul className="space-y-2">
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 hover:bg-gray-100">
+                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 transition-colors duration-300 ease-linear hover:bg-gray-200">
                   <FiSettings size={20} />
                   Settings
                 </a>
               </li>
 
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 hover:bg-gray-100">
+                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-gray-600 transition-colors duration-300 ease-linear hover:bg-gray-200">
                   <FiHelpCircle size={20} />
                   Help
                 </a>
               </li>
 
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-red-500 hover:bg-red-50">
+                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-red-500 transition-colors duration-300 ease-linear hover:bg-red-100">
                   <FiLogOut size={20} />
                   Logout
                 </a>
@@ -185,15 +173,17 @@ const DashboardLayout = () => {
           </div>
 
           {/* Promo Card */}
-          <div className="bg-linear-to-br from-[#14532d] to-[#0f3d26] rounded-3xl mt-3 p-6 text-white">
-            <FiDownload className="mb-4" />
-            <p className="font-semibold text-sm mb-2">
+          <div className="bg-linear-to-br from-brand-primary to-brand-deep rounded-3xl mt-3 p-6 text-white">
+            <div className="inline-block border p-2 rounded-full text-brand-primary bg-white">
+              <FiDownload size={18}/>
+            </div>
+            <p className="font-medium text-2xl mb-2">
               Download our Mobile App
             </p>
-            <p className="text-xs opacity-80 mb-4">
+            <p className="text-md opacity-80 mb-4">
               Get easy in another way
             </p>
-            <button className="w-full py-2 rounded-full bg-white text-[#14532d] text-sm font-semibold">
+            <button className="w-full py-2 rounded-full bg-white text-brand-primary text-sm font-semibold transition-colors duration-300 ease-linear hover:bg-transparent hover:text-white hover:outline-1 hover:outline-white">
               Download
             </button>
           </div>

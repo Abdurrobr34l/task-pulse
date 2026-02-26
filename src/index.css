@@ -2,41 +2,48 @@
 @plugin "daisyui";
 
 @theme {
-  --color-brand-deep: #0f3d26;
-  --color-brand-primary: #14532d;
-  --color-brand-secondary: #1f7a4c;
-  --color-brand-light: #eaf7f0;
-  --color-brand-accent: #22c55e;
-
+  /* Brand Colors from Design */
+  --color-brand-deep: #0e4d31;
+  --color-brand-primary: #1a5d3e;
+  --color-brand-light: #e8f5ee;
+  --color-brand-accent: #34d399;
+  
+  /* Border Radius */
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
 }
 
 @plugin "daisyui" {
-  themes: light --default, dark;
+  themes: light --default, light;
 }
 
 [data-theme="light"] {
-  --color-base-100: #f5f6f8;
+  --color-base-100: #f3f4f6;
   --color-base-200: #ffffff;
-  --color-base-300: #f3f4f6;
-
-  --color-primary: #14532d;
+  --color-primary: #1a5d3e;
   --color-primary-content: #ffffff;
 }
 
 [data-theme="dark"] {
-  --color-base-100: #0b0f0c;
-  --color-base-200: #121714;
-
-  --color-primary: #22c55e;
-  --color-primary-content: #0f3d26;
+  --color-base-100: #0a0c0b;
+  --color-base-200: #141816;
+  --color-primary: #34d399;
+  --color-primary-content: #0e4d31;
 }
 
+/* Custom scrollbar to match the clean aesthetic */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #14532d40;
+  background: #1a5d3e55;
   border-radius: 10px;
+}
+
+.bg-color {
+  @apply bg-[linear-gradient(360deg,#1f6f4a,#0f3d2a)] hover:cursor-pointer
+}
+
+button, a {
+  @apply hover:cursor-pointer!
 }
