@@ -32,8 +32,22 @@ const Overview = () => {
     fetchData();
   }, [])
 
-
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) {
+    return (
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        {[1, 2, 3, 4].map((_, index) => (
+          <div key={index} className="rounded-3xl p-6 bg-white animate-pulse">
+            <div className="flex justify-between items-start">
+              <div className="h-6 w-24 skeleton"></div>
+              <div className="w-10 h-10 rounded-full skeleton"></div>
+            </div>
+            <div className="mt-4 h-12 w-20 skeleton"></div>
+            <div className="mt-4 h-4 w-32 skeleton"></div>
+          </div>
+        ))}
+      </div>
+    );
+  }
   if (error) return <p>{error}</p>;
 
   const cards = data
@@ -62,7 +76,7 @@ const Overview = () => {
     : [];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
 
       {
         cards.map((card, index) => (
