@@ -54,18 +54,18 @@ const User = () => {
           All Products
         </h2>
 
-        <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6 xl:h-12.5">
+        <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md xl:h-12.5">
           <FiPlus size={16} /> Add Product
         </button>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 max-h-57.5 overflow-scroll">
         {products.map((product) => (
           <div
             key={product.id}
-            className="flex justify-between items-start p-4 rounded-xl hover:shadow-md transition">
+            className="flex justify-between items-start py-1 rounded-xl">
 
-            <div className='flex items-center gap-6'>
+            <div className='flex items-center gap-3'>
               {/* Profile Img */}
               <div>
                 <CgProfile className='text-gray-800 text-5xl' />

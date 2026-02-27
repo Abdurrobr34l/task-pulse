@@ -59,13 +59,13 @@ const User = () => {
         </button>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 max-h-55 overflow-scroll">
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex justify-between items-start p-4 rounded-xl hover:shadow-md transition">
+            className="flex justify-between items-start rounded-xl">
 
-            <div className='flex items-center gap-6'>
+            <div className='flex items-center gap-4'>
               {/* Profile Img */}
               <div>
                 <CgProfile className='text-gray-800 text-5xl' />

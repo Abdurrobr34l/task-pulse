@@ -19,7 +19,6 @@ const Analytics = () => {
       .then((data) => setAnalytics(data));
   }, []);
 
-  // Convert API data (dynamic)
   const labels = analytics.map((a) =>
     new Date(a.date).toLocaleDateString("en-US", { weekday: "short" }).charAt(0)
   );
@@ -72,12 +71,12 @@ const Analytics = () => {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-8">
+    <div className="h-full bg-white rounded-3xl p-5.5">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
         Project Analytics
       </h2>
 
-      <div className="h-72">
+      <div>
         <Bar data={data} options={options} />
       </div>
     </div>

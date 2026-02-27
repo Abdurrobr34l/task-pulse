@@ -17,7 +17,7 @@ const ProjectProgress = () => {
   const inProgressLength = (inProgress / 100) * circumference;
 
   return (
-    <div className="bg-white rounded-2xl p-6 w-full max-w-md shadow-md">
+    <div className="bg-white rounded-2xl p-6 w-full shadow-md">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
         Project Progress
       </h2>
@@ -25,7 +25,7 @@ const ProjectProgress = () => {
       <div className="flex flex-col items-center">
         <svg
           height="190"
-          width="260"
+          width="160"
           viewBox="0 0 260 190"
           className="overflow-visible"
         >
