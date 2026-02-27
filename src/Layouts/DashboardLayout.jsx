@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import { FiSearch, FiBell, FiMail, FiPlus, FiDownload, FiCheckSquare, FiCalendar, FiUsers, FiSettings, FiHelpCircle, FiLogOut, FiBarChart2, } from "react-icons/fi";
 import { MdOutlineDashboard } from "react-icons/md";
 import Logo from "/logo.png";
@@ -13,7 +13,7 @@ const DashboardLayout = () => {
       <div className="drawer-content flex flex-col">
 
         {/* NAVBAR */}
-        <header className="navbar rounded-[16px] bg-[#f7f7f7] sticky top-0 z-10 p-6 border-b border-gray-100">
+        <header className="navbar rounded-2xl bg-[#f7f7f7] sticky top-0 z-10 p-6 border-b border-gray-100">
           <div className="flex-1 flex-row gap-4">
 
             <label
@@ -61,7 +61,7 @@ const DashboardLayout = () => {
         </header>
 
         {/* MAIN */}
-        <main className="p-6 mt-4 bg-[#f7f7f7] rounded-[16px] min-h-screen">
+        <main className="p-6 mt-4 bg-[#f7f7f7] rounded-2xl min-h-screen">
           <div className="flex flex-col gap-3 mb-8 xl:flex-row xl:justify-between">
             <div>
               <h1 className="text-4xl font-bold text-gray-800">
@@ -95,14 +95,14 @@ const DashboardLayout = () => {
 
           {/* Logo */}
           <div>
-            <div className="flex items-center gap-3 mb-12">
+            <Link to={"/"} className="flex items-center gap-3 mb-12">
               <div className="w-16 h-16">
                 <img src={Logo} alt="It is website logo " />
               </div>
               <span className="text-2xl font-bold text-gray-800">
                 Task Pulse
               </span>
-            </div>
+            </Link>
 
             {/* MENU */}
             <p className="text-md font-semibold uppercase text-gray-400 mb-4">Menu</p>

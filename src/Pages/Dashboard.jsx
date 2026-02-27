@@ -14,7 +14,7 @@ const Dashboard = () => {
       <div className='mt-3'>
         <Analytics/>
         <Remainder/>
-        {/* <ProjectProgress/> */}
+        <ProjectProgress/>
         <User/>
         <TimeTracker/>
       </div>
