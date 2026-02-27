@@ -5,6 +5,7 @@ import Remainder from '../Components/Remainder';
 import ProjectProgress from '../Components/ProjectProgress';
 import TimeTracker from '../Components/TimeTracker';
 import User from '../Components/User';
+import Products from '../Components/Products';
 
 const Dashboard = () => {
   return (
@@ -16,6 +17,7 @@ const Dashboard = () => {
         <Remainder/>
         <ProjectProgress/>
         <User/>
+        <Products />
         <TimeTracker/>
       </div>
     </div>

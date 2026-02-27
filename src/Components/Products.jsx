@@ -4,7 +4,7 @@ import { CgProfile } from 'react-icons/cg';
 import { FiPlus } from 'react-icons/fi';
 
 const User = () => {
-  const [users, setUsers] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,7 +12,7 @@ const User = () => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          "https://task-api-eight-flax.vercel.app/api/users"
+          "https://task-api-eight-flax.vercel.app/api/products"
         );
 
         if (!response.ok) {
@@ -20,7 +20,7 @@ const User = () => {
         }
 
         const data = await response.json();
-        setUsers(data);
+        setProducts(data);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -51,18 +51,18 @@ const User = () => {
     <div className="bg-white shadow-xl rounded-2xl p-6">
       <div className='flex items-center justify-between mb-6'>
         <h2 className="text-2xl font-semibold text-gray-800">
-          All Users
+          All Products
         </h2>
 
         <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6 xl:h-12.5">
-          <FiPlus size={16} /> Add User
+          <FiPlus size={16} /> Add Product
         </button>
       </div>
 
       <div className="space-y-4">
-        {users.map((user) => (
+        {products.map((product) => (
           <div
-            key={user.id}
+            key={product.id}
             className="flex justify-between items-start p-4 rounded-xl hover:shadow-md transition">
 
             <div className='flex items-center gap-6'>
@@ -72,22 +72,19 @@ const User = () => {
               </div>
               {/* Info */}
               <div>
-                <h3 className="font-semibold text-lg text-gray-800">{user.name}</h3>
-                <p className="text-sm font-semibold opacity-60 text-brand-primary">{user.email}</p>
-                <p className="text-xs font-semibold text-gray-800">
-                  Joined: {new Date(user.joinDate).toLocaleDateString()}
+                <h3 className="font-semibold text-lg text-gray-800">{product.name}</h3>
+                <p className='flex items-center gap-3'>
+                  <span className="text-lg font-semibold opacity-60 text-brand-primary">{product.price}</span>
+                  <span className="text-md font-bold text-brand-primary capitalize">{product.category}</span>
                 </p>
               </div>
             </div>
 
             <div>
               <span
-                className={`badge ${user.status === "active"
-                  ? "bg-success/20 text-success font-semibold capitalize border-transparent rounded-full"
-                  : "bg-error/20 text-error font-semibold capitalize border-transparent rounded-full"
-                  }`}
+                className={"badge bg-success/20 text-success font-bold border-transparent rounded-full"}
               >
-                {user.status}
+                Sales: {product.sales}
               </span>
             </div>
           </div>
