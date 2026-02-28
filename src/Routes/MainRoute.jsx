@@ -1,26 +1,3 @@
-// import { createBrowserRouter } from "react-router";
-// import Login from "../Pages/Login";
-// import DashboardLayout from "../Layouts/DashboardLayout";
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Login />,
-//   },
-//   {
-//     path: "/dashboard",
-//     element: <DashboardLayout />,
-//     children: [
-//       {
-//         index: true,
-//         element: <Dashboard />,
-//       },
-//     ],
-//   },
-// ]);
-
-// export default router;
-
 import { createBrowserRouter } from "react-router";
 import Login from "../Pages/Login";
 import DashboardLayout from "../Layouts/DashboardLayout";
@@ -34,7 +11,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: 
+    <PrivateRoute>
+
+      <DashboardLayout />
+    </PrivateRoute>,
     children: [
       {
         index: true,

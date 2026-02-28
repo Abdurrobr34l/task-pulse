@@ -1,10 +1,27 @@
-import React from "react";
-import { Link, Outlet } from "react-router";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router";
 import { FiSearch, FiBell, FiMail, FiPlus, FiDownload, FiCheckSquare, FiCalendar, FiUsers, FiSettings, FiHelpCircle, FiLogOut, FiBarChart2, } from "react-icons/fi";
 import { MdOutlineDashboard } from "react-icons/md";
 import Logo from "/logo.png";
 
 const DashboardLayout = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
   return (
     <div className="drawer lg:drawer-open p-5 bg-[#ffffff] min-h-screen font-sans">
       <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -51,9 +68,9 @@ const DashboardLayout = () => {
                 />
               </div>
               <div className="text-left hidden sm:block">
-                <p className="text-md font-bold text-base-200">Abdur Rob</p>
+                <p className="text-md font-bold text-base-200 capitalize">{user?.email?.split("@")[0] || "User"}</p>
                 <p className="text-xs text-gray-600">
-                  abdurrob@mail.com
+                  {user?.email}
                 </p>
               </div>
             </div>
@@ -164,10 +181,13 @@ const DashboardLayout = () => {
               </li>
 
               <li>
-                <a className="flex items-center gap-3 py-3 px-4 rounded-xl text-red-500 transition-colors duration-300 ease-linear hover:bg-red-100">
+                <button
+                  onClick={handleLogout}
+                  className="flex items-center gap-3 py-3 px-4 rounded-xl text-red-500 transition-colors duration-300 ease-linear hover:bg-red-100 w-full text-left"
+                >
                   <FiLogOut size={20} />
                   Logout
-                </a>
+                </button>
               </li>
             </ul>
           </div>
@@ -175,7 +195,7 @@ const DashboardLayout = () => {
           {/* Promo Card */}
           <div className="bg-linear-to-br from-brand-primary to-brand-deep rounded-3xl mt-3 p-6 text-white">
             <div className="inline-block border p-2 rounded-full text-brand-primary bg-white">
-              <FiDownload size={18}/>
+              <FiDownload size={18} />
             </div>
             <p className="font-medium text-2xl mb-2">
               Download our Mobile App
