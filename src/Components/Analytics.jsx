@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -15,6 +15,7 @@ const Analytics = () => {
   const [analytics, setAnalytics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const chartRef = useRef(null);
 
   useEffect(() => {
     const fetchAnalytics = async () => {
@@ -23,9 +24,7 @@ const Analytics = () => {
           "https://task-api-eight-flax.vercel.app/api/analytics"
         );
 
-        if (!res.ok) {
-          throw new Error("Failed to fetch analytics");
-        }
+        if (!res.ok) throw new Error("Failed to fetch analytics");
 
         const data = await res.json();
         setAnalytics(data);
@@ -48,22 +47,44 @@ const Analytics = () => {
         )
       : [];
 
-  const values = analytics.length > 0 ? analytics.map((a) => a.views) : [];
+  const values =
+    analytics.length > 0 ? analytics.map((a) => a.views) : [];
 
-  const maxValue = values.length > 0 ? Math.max(...values) : 0;
+  const activeIndex = values.length
+    ? values.indexOf(Math.max(...values))
+    : -1;
+
+  // Stripe Pattern
+  const createStripePattern = (ctx) => {
+    const canvas = document.createElement("canvas");
+    canvas.width = 8;
+    canvas.height = 8;
+    const patternCtx = canvas.getContext("2d");
+
+    patternCtx.fillStyle = "#cbd5e1";
+    patternCtx.fillRect(0, 0, 4, 8);
+
+    return ctx.createPattern(canvas, "repeat");
+  };
 
   const data = {
     labels,
     datasets: [
       {
         data: values,
-        borderRadius: 50,
+        borderRadius: 999,
         borderSkipped: false,
-        backgroundColor: values.map((v) =>
-          v === maxValue ? "#14532d" : "#2f855a"
-        ),
-        hoverBackgroundColor: "#0f3d2a",
         barThickness: 40,
+        backgroundColor: (context) => {
+          const { chart, dataIndex } = context;
+          const ctx = chart.ctx;
+
+          if (dataIndex === activeIndex) {
+            return "#14532d";
+          }
+
+          return createStripePattern(ctx);
+        },
       },
     ],
   };
@@ -73,10 +94,7 @@ const Analytics = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
-      tooltip: {
-        backgroundColor: "#1a5d3e",
-        displayColors: false,
-      },
+      tooltip: { enabled: false },
     },
     scales: {
       x: {
@@ -99,7 +117,7 @@ const Analytics = () => {
     return (
       <div className="h-full bg-white rounded-3xl p-6">
         <Skeleton className="h-6 w-48 mb-6" />
-        <Skeleton className="h-64 w-full rounded-2xl" />
+        <Skeleton className="h-40 w-full rounded-2xl" />
       </div>
     );
   }
@@ -119,7 +137,7 @@ const Analytics = () => {
       </h2>
 
       <div>
-        <Bar data={data} options={options} />
+        <Bar ref={chartRef} data={data} options={options} />
       </div>
     </div>
   );

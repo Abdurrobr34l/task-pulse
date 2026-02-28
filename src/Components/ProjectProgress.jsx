@@ -96,7 +96,7 @@ const ProjectProgress = () => {
           </p>
         </div>
 
-        <div className="flex gap-6 mt-6 text-sm text-gray-500">
+        <div className="flex gap-6 flex-wrap justify-center mt-6 text-sm text-gray-500 lg:flex-nowrap">
           <span className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#2f855a]"></span>
             Completed
