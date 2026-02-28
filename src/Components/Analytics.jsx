@@ -7,25 +7,50 @@ import {
   BarElement,
   Tooltip,
 } from "chart.js";
+import Skeleton from "../Utilities/Skeleton";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
 
 const Analytics = () => {
   const [analytics, setAnalytics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://task-api-eight-flax.vercel.app/api/analytics")
-      .then((res) => res.json())
-      .then((data) => setAnalytics(data));
+    const fetchAnalytics = async () => {
+      try {
+        const res = await fetch(
+          "https://task-api-eight-flax.vercel.app/api/analytics"
+        );
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch analytics");
+        }
+
+        const data = await res.json();
+        setAnalytics(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchAnalytics();
   }, []);
 
-  const labels = analytics.map((a) =>
-    new Date(a.date).toLocaleDateString("en-US", { weekday: "short" }).charAt(0)
-  );
+  const labels =
+    analytics.length > 0
+      ? analytics.map((a) =>
+          new Date(a.date)
+            .toLocaleDateString("en-US", { weekday: "short" })
+            .charAt(0)
+        )
+      : [];
 
-  const values = analytics.map((a) => a.views);
+  const values = analytics.length > 0 ? analytics.map((a) => a.views) : [];
 
-  const maxValue = Math.max(...values);
+  const maxValue = values.length > 0 ? Math.max(...values) : 0;
 
   const data = {
     labels,
@@ -69,6 +94,23 @@ const Analytics = () => {
       },
     },
   };
+
+  if (isLoading) {
+    return (
+      <div className="h-full bg-white rounded-3xl p-6">
+        <Skeleton className="h-6 w-48 mb-6" />
+        <Skeleton className="h-64 w-full rounded-2xl" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="h-full bg-white rounded-3xl p-6 text-red-500">
+        {error}
+      </div>
+    );
+  }
 
   return (
     <div className="h-full bg-white rounded-3xl p-5.5">

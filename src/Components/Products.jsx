@@ -2,10 +2,11 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import { CgProfile } from 'react-icons/cg';
 import { FiPlus } from 'react-icons/fi';
+import Skeleton from '../Utilities/Skeleton';
 
 const User = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -24,17 +25,33 @@ const User = () => {
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
     fetchUsers();
   }, []);
 
-  if (loading) {
+  if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-40">
-        <span className="loading loading-spinner loading-lg text-primary"></span>
+      <div className="bg-white shadow-xl rounded-2xl p-6">
+        <Skeleton className="h-6 w-40 mb-6" />
+
+        <div className="space-y-4">
+          {Array.from({ length: 4 }).map((_, index) => (
+            <div key={index} className="flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <Skeleton className="w-12 h-12 rounded-full" />
+                <div className="space-y-2">
+                  <Skeleton className="h-4 w-32" />
+                  <Skeleton className="h-4 w-24" />
+                </div>
+              </div>
+
+              <Skeleton className="h-6 w-20 rounded-full" />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
