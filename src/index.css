@@ -46,3 +46,7 @@ button,
 a {
   @apply hover:cursor-pointer!;
 }
+
+.btn-hover {
+  @apply transition-all duration-500 ease-linear hover:bg-[linear-gradient(360deg,#fff,#fff)] hover:text-brand-primary hover:outline-1 hover:outline-brand-primary
+}

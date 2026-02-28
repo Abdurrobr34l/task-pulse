@@ -7,8 +7,8 @@ const ProjectProgress = () => {
   const total = completed + inProgress; // 41%
 
   // Gauge settings
-  const radius = 130;
-  const stroke = 70;
+  const radius = 160;
+  const stroke = 80;
   const normalizedRadius = radius - stroke / 220;
   const circumference = Math.PI * normalizedRadius;
 
@@ -17,7 +17,7 @@ const ProjectProgress = () => {
   const inProgressLength = (inProgress / 100) * circumference;
 
   return (
-    <div className="bg-white rounded-2xl p-6 w-full shadow-md">
+    <div className="flex flex-col justify-center h-full bg-white rounded-2xl p-6 w-full shadow-md">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
         Project Progress
       </h2>
@@ -87,7 +87,7 @@ const ProjectProgress = () => {
           })()}
         </svg>
 
-        <div className="-mt-20 text-center">
+        <div className="-mt-24 text-center">
           <h3 className="text-6xl font-bold text-gray-800">
             {total}%
           </h3>

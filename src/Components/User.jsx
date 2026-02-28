@@ -48,18 +48,18 @@ const User = () => {
   }
 
   return (
-    <div className="bg-white shadow-xl rounded-2xl p-6">
+    <div className="flex flex-col justify-center bg-white shadow-xl rounded-2xl p-6">
       <div className='flex items-center justify-between mb-6'>
         <h2 className="text-2xl font-semibold text-gray-800">
           All Users
         </h2>
 
-        <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6 xl:h-12.5">
+        <button className="bg-color btn-hover flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6 xl:h-12.5">
           <FiPlus size={16} /> Add User
         </button>
       </div>
 
-      <div className="space-y-4 max-h-55 overflow-scroll">
+      <div className="space-y-4 max-h-60 overflow-scroll">
         {users.map((user) => (
           <div
             key={user.id}

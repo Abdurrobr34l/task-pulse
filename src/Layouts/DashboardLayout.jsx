@@ -73,11 +73,11 @@ const DashboardLayout = () => {
             </div>
 
             <div className="flex gap-4">
-              <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6 xl:h-12.5">
+              <button className="bg-color btn-hover flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md md:px-6 xl:h-12.5">
                 <FiPlus size={16} /> Add Project
               </button>
 
-              <button className="px-4 py-2 rounded-full border border-brand-primary text-brand-primary text-md font-medium hover:cursor-pointer md:px-6 xl:h-12.5">
+              <button className="btn-hover px-4 py-2 rounded-full border border-brand-primary text-brand-primary text-md font-medium hover:cursor-pointer md:px-6 xl:h-12.5">
                 Import Data
               </button>
             </div>

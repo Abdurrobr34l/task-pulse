@@ -54,7 +54,7 @@ const User = () => {
           All Products
         </h2>
 
-        <button className="bg-color flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md xl:h-12.5">
+        <button className="bg-color btn-hover flex items-center gap-2 px-4 py-4 rounded-full text-white text-md font-medium shadow-md xl:h-12.5">
           <FiPlus size={16} /> Add Product
         </button>
       </div>

@@ -16,7 +16,7 @@ const Remainder = () => {
         Time : 02.00 pm - 04.00 pm
       </p>
 
-      <button className="text-lg w-full flex items-center justify-center gap-3 py-3 rounded-xl text-white bg-color">
+      <button className="btn-hover text-lg w-full flex items-center justify-center gap-3 py-3 rounded-xl text-white bg-color">
         <FaVideo />
         Start Meeting
       </button>
