@@ -3,7 +3,7 @@ import { FaVideo } from "react-icons/fa";
 
 const Remainder = () => {
   return (
-    <div className="bg-white rounded-2xl p-6 w-full shadow-md h-full">
+    <div className="card-hover bg-white rounded-2xl p-6 w-full shadow-md h-full">
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">
         Reminders
       </h2>

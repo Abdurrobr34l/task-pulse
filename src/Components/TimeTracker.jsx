@@ -25,7 +25,7 @@ const [seconds, setSeconds] = useState(0);
   };
 
   return (
- <div className="bg-color rounded-2xl p-6 w-full text-white shadow-md">
+ <div className="animate-pulse bg-color rounded-2xl p-6 w-full text-white shadow-md">
       <h2 className="text-2xl font-semibold mb-6">
         Time Tracker
       </h2>

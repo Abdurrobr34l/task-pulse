@@ -23,7 +23,6 @@ const Analytics = () => {
         const res = await fetch(
           "https://task-api-eight-flax.vercel.app/api/analytics"
         );
-
         if (!res.ok) throw new Error("Failed to fetch analytics");
 
         const data = await res.json();
@@ -38,23 +37,19 @@ const Analytics = () => {
     fetchAnalytics();
   }, []);
 
+  // Fix: Use proper weekday labels
   const labels =
     analytics.length > 0
       ? analytics.map((a) =>
-          new Date(a.date)
-            .toLocaleDateString("en-US", { weekday: "short" })
-            .charAt(0)
+          new Date(a.date).toLocaleDateString("en-US", { weekday: "short" })
         )
       : [];
 
-  const values =
-    analytics.length > 0 ? analytics.map((a) => a.views) : [];
+  const values = analytics.length > 0 ? analytics.map((a) => a.views) : [];
 
-  const activeIndex = values.length
-    ? values.indexOf(Math.max(...values))
-    : -1;
+  const activeIndex = values.length ? values.indexOf(Math.max(...values)) : -1;
 
-  // Stripe Pattern
+  // Stripe pattern
   const createStripePattern = (ctx) => {
     const canvas = document.createElement("canvas");
     canvas.width = 8;
@@ -94,16 +89,13 @@ const Analytics = () => {
     maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
-      tooltip: { enabled: false },
+      tooltip: { enabled: true },
     },
     scales: {
       x: {
         grid: { display: false },
         border: { display: false },
-        ticks: {
-          color: "#6b7280",
-          font: { size: 14 },
-        },
+        ticks: { color: "#6b7280", font: { size: 14 } },
       },
       y: {
         display: false,
@@ -131,11 +123,10 @@ const Analytics = () => {
   }
 
   return (
-    <div className="h-full bg-white rounded-3xl p-5.5">
+    <div className="card-hover h-full bg-white rounded-3xl p-5.5">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
         Project Analytics
       </h2>
-
       <div>
         <Bar ref={chartRef} data={data} options={options} />
       </div>

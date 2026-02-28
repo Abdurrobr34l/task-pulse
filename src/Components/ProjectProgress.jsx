@@ -17,7 +17,7 @@ const ProjectProgress = () => {
   const inProgressLength = (inProgress / 100) * circumference;
 
   return (
-    <div className="flex flex-col justify-center h-full bg-white rounded-2xl p-6 w-full shadow-md">
+    <div className="card-hover flex flex-col justify-center h-full bg-white rounded-2xl p-6 w-full shadow-md">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
         Project Progress
       </h2>

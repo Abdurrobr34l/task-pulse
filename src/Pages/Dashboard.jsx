@@ -36,7 +36,7 @@ const Dashboard = () => {
         className="
             sm:col-span-2
             lg:col-span-2
-            2xl:col-span-3 2xl:row-span-2 2xl:row-start-3
+            2xl:col-span-4 2xl:row-span-2 2xl:row-start-3
           "
       >
         <Analytics />
@@ -47,7 +47,7 @@ const Dashboard = () => {
         className="
             sm:col-span-1
             lg:col-span-2
-            2xl:col-span-3 2xl:row-span-2 2xl:col-start-4 2xl:row-start-3
+            2xl:col-span-2 2xl:row-span-2 2xl:col-start-5 2xl:row-start-3
           "
       >
         <Remainder />

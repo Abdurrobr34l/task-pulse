@@ -54,3 +54,7 @@ a {
 .icon-hover {
   @apply transition-all duration-500 hover:bg-brand-primary hover:border-white hover:text-white;
 }
+
+.card-hover {
+  @apply transition-transform duration-300 ease-linear hover:scale-102 hover:shadow-lg
+}
