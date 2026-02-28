@@ -48,5 +48,9 @@ a {
 }
 
 .btn-hover {
-  @apply transition-all duration-500 ease-linear hover:bg-[linear-gradient(360deg,#fff,#fff)] hover:text-brand-primary hover:outline-1 hover:outline-brand-primary
+  @apply transition-all duration-500 ease-linear hover:bg-[linear-gradient(360deg,#fff,#fff)] hover:text-brand-primary hover:outline-1 hover:outline-brand-primary;
+}
+
+.icon-hover {
+  @apply transition-all duration-500 hover:bg-brand-primary hover:border-white hover:text-white;
 }

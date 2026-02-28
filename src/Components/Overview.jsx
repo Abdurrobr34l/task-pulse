@@ -89,12 +89,12 @@ const Overview = () => {
               </p>
 
               <button
-                className="w-10 h-10 rounded-full text-brand-deep border flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:border-white/20 hover:bg-brand-primary hover:border-white hover:text-white">
+                className="w-10 h-10 rounded-full text-brand-deep border flex items-center justify-center transition-all duration-500 group-hover:bg-white group-hover:border-white/20 icon-hover">
                 <FiArrowUpRight size={18} />
               </button>
             </div>
 
-            <h2 className="text-5xl font-bold mt-4 transition-all duration-500 group-hover:[text-shadow:0_0_35px_#6cd823]">
+            <h2 className="text-5xl font-bold mt-4 transition-all duration-500 group-hover:[text-shadow:0_0_35px_#6cd823] xl:text-4xl 2xl:text-5xl">
               {card.value}
             </h2>
 

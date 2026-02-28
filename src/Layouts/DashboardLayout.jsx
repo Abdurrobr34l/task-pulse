@@ -35,10 +35,10 @@ const DashboardLayout = () => {
           </div>
 
           <div className="flex-none gap-3 flex items-center ml-5">
-            <button className="w-10 h-10 rounded-full bg-[#ffffff] text-base-200 flex items-center justify-center">
+            <button className="icon-hover w-10 h-10 rounded-full bg-[#ffffff] text-base-200 flex items-center justify-center">
               <FiMail size={18} />
             </button>
-            <button className="w-10 h-10 rounded-full bg-[#ffffff] text-base-200 flex items-center justify-center">
+            <button className="icon-hover w-10 h-10 rounded-full bg-[#ffffff] text-base-200 flex items-center justify-center">
               <FiBell size={18} />
             </button>
 
